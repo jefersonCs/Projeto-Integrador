@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./css/headerResponsive.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/btnHamburguer.css" />
-    <link rel="stylesheet" href="./css/auth.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
     <title>home</title>
 </head>
 
@@ -226,106 +227,108 @@
     </main>
 
     <!-- MODAL DE LOGIN E CADASTRO -->
-<div class="modal-login-overlay" id="modal-auth">
-  <div class="modal-login-container" id="auth-container">
-    
-    <!-- LOGIN -->
-    <div class="form-container sign-in-container">
-      <form id="login-form">
-        <h2>Login</h2>
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-        <input type="password" name="senha" placeholder="Sua senha" required />
+    <div class="modal-login-overlay" id="modal-auth">
+        <div class="modal-login-container" id="auth-container">
 
-        <button type="submit">Entrar</button>
-        <div class="social-login">
-          <p>Ou entre com:</p>
-          <div id="social-icons">
-            <a href="https://i.postimg.cc/YC0QrDwV/image.png" target="_blank">
-              <img src="https://i.postimg.cc/YC0QrDwV/image.png" alt="Google"></img>
-            </a>
-            <a href="https://facebook.com/seuPerfil" target="_blank">
-              <img src="https://i.postimg.cc/2SJYMywJ/image.png" alt="Facebook"></img>
-            </a>
-            <a href="https://i.postimg.cc/Vs7yr5Ch/image.png" target="_blank">
-              <img src="https://i.postimg.cc/Vs7yr5Ch/image.png" alt="Instagram"></img>
-            </a>
-</div>
+            <!-- LOGIN -->
+            <div class="form-container sign-in-container">
+                <form id="login-form">
+                    <h2>Login</h2>
+                    <input type="email" name="email" placeholder="Seu e-mail" required />
+                    <input type="password" name="senha" placeholder="Sua senha" required />
+
+                    <button type="submit">Entrar</button>
+                    <div class="social-login">
+                        <p>Ou entre com:</p>
+                        <div id="social-icons">
+                            <a href="https://i.postimg.cc/YC0QrDwV/image.png" target="_blank">
+                                <img src="https://i.postimg.cc/YC0QrDwV/image.png" alt="Google"></img>
+                            </a>
+                            <a href="https://facebook.com/seuPerfil" target="_blank">
+                                <img src="https://i.postimg.cc/2SJYMywJ/image.png" alt="Facebook"></img>
+                            </a>
+                            <a href="https://i.postimg.cc/Vs7yr5Ch/image.png" target="_blank">
+                                <img src="https://i.postimg.cc/Vs7yr5Ch/image.png" alt="Instagram"></img>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CADASTRO -->
+            <div class="form-container sign-up-container">
+                <form id="signup-form">
+                    <h2>Cadastro</h2>
+                    <input type="text" placeholder="Nome" required />
+                    <input type="text" placeholder="Sobrenome" required />
+                    <input type="email" placeholder="Seu e-mail" required />
+                    <input type="password" placeholder="Senha" required />
+                    <input type="password" placeholder="Confirmar senha" required />
+                    <button type="submit">Próximo</button>
+                    <div class="social-login">
+                        <p>Ou cadastre-se com:</p>
+                        <div id="social-icons">
+                            <a href="https://i.postimg.cc/YC0QrDwV/image.png" title="login-google">
+                                <img src="https://i.postimg.cc/YC0QrDwV/image.png" alt="Google"></img>
+                            </a>
+                            <a href="https://facebook.com/seuPerfil" title="login-facebook">
+                                <img src="https://i.postimg.cc/2SJYMywJ/image.png" alt="Facebook"></img>
+                            </a>
+                            <a href="https://i.postimg.cc/Vs7yr5Ch/image.png" title="login-instagram">
+                                <img src="https://i.postimg.cc/Vs7yr5Ch/image.png" alt="Instagram"></img>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <div id="tipo-conta-etapa" style="display: none; text-align: left;">
+                    <h2 style="text-align: center;">Escolha o tipo de conta</h2>
+                    <form id="form-tipo-conta">
+                        <div class="radio-option">
+                            <input type="radio" id="equipe" name="tipoConta" value="equipeEsportiva" />
+                            <label for="equipe">Equipe Esportiva</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="profissional" name="tipoConta" value="profissional" />
+                            <label for="profissional">Profissional</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="atleta" name="tipoConta" value="atleta" />
+                            <label for="atleta">Atleta</label>
+                        </div>
+                        <div style="text-align: center;">
+                            <button id="finalizar-cadastro" class="btn btn-primary mt-3" type="submit"
+                                style="display: none;">Finalizar Cadastro</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+
+            <!-- OVERLAY -->
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h2>Bem-vindo!</h2>
+                        <p>Para se manter conectado, faça login com seus dados</p>
+                        <button class="ghost" id="back-to-login">Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h2>Olá, atleta!</h2>
+                        <p>Preencha seus dados e junte-se ao ScouTchê</p>
+                        <button class="ghost" id="back-to-signup">Cadastre-se</button>
+                    </div>
+                </div>
+            </div>
+            <!-- BOTÃO DE FECHAR -->
+            <button class="modal-close" id="close-auth">&times;</button>
         </div>
-      </form>
     </div>
 
-    <!-- CADASTRO -->
-    <div class="form-container sign-up-container">
-      <form id="signup-form">
-        <h2>Cadastro</h2>
-        <input type="text" placeholder="Nome" required />
-        <input type="text" placeholder="Sobrenome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <input type="password" placeholder="Senha" required />
-        <input type="password" placeholder="Confirmar senha" required />
-        <button type="submit">Próximo</button>
-        <div class="social-login">
-          <p>Ou cadastre-se com:</p>
-          <div id="social-icons">
-            <a href="https://i.postimg.cc/YC0QrDwV/image.png" title="login-google">
-              <img src="https://i.postimg.cc/YC0QrDwV/image.png" alt="Google"></img>
-            </a>
-            <a href="https://facebook.com/seuPerfil" title="login-facebook">
-              <img src="https://i.postimg.cc/2SJYMywJ/image.png" alt="Facebook"></img>
-            </a>
-            <a href="https://i.postimg.cc/Vs7yr5Ch/image.png" title="login-instagram">
-              <img src="https://i.postimg.cc/Vs7yr5Ch/image.png" alt="Instagram"></img>
-            </a>
-</div>
-        </div>
-      </form>
-      <div id="tipo-conta-etapa" style="display: none; text-align: left;">
-        <h2 style="text-align: center;">Escolha o tipo de conta</h2>
-        <form id="form-tipo-conta">
-          <div class="radio-option">
-            <input type="radio" id="equipe" name="tipoConta" value="equipeEsportiva" />
-            <label for="equipe">Equipe Esportiva</label>
-          </div>
-          <div class="radio-option">
-            <input type="radio" id="profissional" name="tipoConta" value="profissional" />
-            <label for="profissional">Profissional</label>
-          </div>
-          <div class="radio-option">
-            <input type="radio" id="atleta" name="tipoConta" value="atleta" />
-            <label for="atleta">Atleta</label>
-          </div>
-          <div style="text-align: center;">
-            <button id="finalizar-cadastro" class="btn btn-primary mt-3" type="submit" style="display: none;">Finalizar Cadastro</button>
-          </div>
-        </form>
-      </div>
-      
-      
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    </div>
-
-    <!-- OVERLAY -->
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h2>Bem-vindo!</h2>
-          <p>Para se manter conectado, faça login com seus dados</p>
-          <button class="ghost" id="back-to-login">Login</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h2>Olá, atleta!</h2>
-          <p>Preencha seus dados e junte-se ao ScouTchê</p>
-          <button class="ghost" id="back-to-signup">Cadastre-se</button>
-        </div>
-      </div>
-    </div>
-    <!-- BOTÃO DE FECHAR -->
-    <button class="modal-close" id="close-auth">&times;</button>
-  </div>
-</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./script/script.js"></script>
     <script src="./script/auth.js"></script>
 </body>
