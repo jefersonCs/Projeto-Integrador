@@ -169,3 +169,18 @@ document.addEventListener("DOMContentLoaded", () => {
     fotoPerfil.src = usuarioSalvo.avatar;
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnEditarPerfil = document.getElementById("btn-editar-perfil");
+  const modalEditarPerfil = document.getElementById("modal-editar-perfil");
+  const btnCancelarEdicao = document.getElementById("cancelarEdicaoPerfil");
+
+  btnEditarPerfil.addEventListener("click", () => {
+    modalEditarPerfil.classList.remove("d-none");
+  });
+
+  btnCancelarEdicao.addEventListener("click", () => {
+    modalEditarPerfil.classList.add("d-none");
+  });
+});
+
