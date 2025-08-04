@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
- 
   document.getElementById('linkAlterarEmail').addEventListener('click', (e) => {
     e.preventDefault();
     fecharMiniOverlay();
@@ -114,7 +113,7 @@ function confirmarAlteracaoEmail() {
   alert('E-mail atualizado com sucesso. Verifique seu novo endereço.');
   fecharOverlay();
 }
- 
+
 function confirmarAlteracaoSenha() {
   const novaSenha = document.getElementById('novaSenha').value;
   const confirmarSenha = document.getElementById('confirmarSenha').value;
@@ -133,97 +132,40 @@ function confirmarAlteracaoSenha() {
   fecharOverlay();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const btnEditarPerfil = document.getElementById('btn-editar-perfil');
-  const modalEditar = document.getElementById('modal-editar-perfil');
-  const btnCancelar = document.getElementById('cancelarEdicaoPerfil');
-  const btnSalvar = document.getElementById('salvarEdicaoPerfil');
+document.addEventListener("DOMContentLoaded", () => {
+  const btnEscolherAvatar = document.getElementById("btnEscolherAvatar");
+  const modalAvatar = document.getElementById("modalAvatar");
+  const closeAvatar = document.querySelector(".close-avatar");
+  const avatarOptions = document.querySelectorAll(".avatar-option");
+  const fotoPerfil = document.getElementById("fotoPerfil");
 
-  btnEditarPerfil.addEventListener('click', () => {
-    const usuario = JSON.parse(localStorage.getItem('usuarioDados')) || {};
-    document.getElementById('editNome').value = usuario.nome || '';
-    document.getElementById('editNascimento').value = usuario.nascimento || '';
-    document.getElementById('editModalidade').value = usuario.modalidade || '';
-    document.getElementById('editBio').value = usuario.bio || '';
-    modalEditar.classList.remove('d-none');
+  btnEscolherAvatar.addEventListener("click", () => {
+    modalAvatar.style.display = "flex";
   });
 
-  btnCancelar.addEventListener('click', () => {
-    modalEditar.classList.add('d-none');
+  closeAvatar.addEventListener("click", () => {
+    modalAvatar.style.display = "none";
   });
 
-  btnSalvar.addEventListener('click', () => {
-    const nome = document.getElementById('editNome').value.trim();
-    const nascimento = document.getElementById('editNascimento').value;
-    const modalidade = document.getElementById('editModalidade').value.trim();
-    const bio = document.getElementById('editBio').value.trim();
-
-    if (!nome || !nascimento || !modalidade) {
-      alert('Preencha todos os campos obrigatórios.');
-      return;
+  modalAvatar.addEventListener("click", (event) => {
+    if (event.target === modalAvatar) {
+      modalAvatar.style.display = "none";
     }
-
-    const usuario = JSON.parse(localStorage.getItem('usuarioDados')) || {};
-    usuario.nome = nome;
-    usuario.nascimento = nascimento;
-    usuario.modalidade = modalidade;
-    usuario.bio = bio;
-
-    localStorage.setItem('usuarioDados', JSON.stringify(usuario));
-
-    document.getElementById('nomeCompleto').textContent = nome;
-    document.getElementById('nascimento').textContent = nascimento;
-    document.getElementById('modalidade').textContent = modalidade;
-    document.getElementById('bio').textContent = bio;
-
-    alert('Perfil atualizado com sucesso!');
-    modalEditar.classList.add('d-none');
   });
-});
 
-btnEditarPerfil.addEventListener('click', () => {
-  const usuario = JSON.parse(localStorage.getItem('usuarioDados')) || {};
+  avatarOptions.forEach((img) => {
+    img.addEventListener("click", () => {
+      const usuario = JSON.parse(localStorage.getItem("usuarioDados")) || {};
+      usuario.avatar = img.src;
+      localStorage.setItem("usuarioDados", JSON.stringify(usuario));
+      fotoPerfil.src = img.src;
+      modalAvatar.style.display = "none";
+    });
+  });
 
-  document.getElementById('editNome').value = usuario.nome || '';
-  document.getElementById('editNascimento').value = usuario.nascimento || '';
-  document.getElementById('editModalidade').value = usuario.modalidade || '';
-  document.getElementById('editTipoConta').value = usuario.tipoConta || '';
-  document.getElementById('editBio').value = usuario.bio || '';
 
-  modalEditar.classList.remove('d-none');
-});
-
-btnSalvar.addEventListener('click', () => {
-  const nome = document.getElementById('editNome').value.trim();
-  const nascimento = document.getElementById('editNascimento').value;
-  const modalidade = document.getElementById('editModalidade').value;
-  const tipoConta = document.getElementById('editTipoConta').value;
-  const bio = document.getElementById('editBio').value.trim();
-
-  if (!nome || !nascimento || !modalidade || !tipoConta) {
-    alert('Preencha todos os campos obrigatórios.');
-    return;
+  const usuarioSalvo = JSON.parse(localStorage.getItem("usuarioDados"));
+  if (usuarioSalvo?.avatar) {
+    fotoPerfil.src = usuarioSalvo.avatar;
   }
-
-  const idade = calcularIdade(nascimento);
-
-  const usuario = JSON.parse(localStorage.getItem('usuarioDados')) || {};
-  usuario.nome = nome;
-  usuario.nascimento = nascimento;
-  usuario.modalidade = modalidade;
-  usuario.tipoConta = tipoConta;
-  usuario.bio = bio;
-  usuario.idade = idade;
-
-  localStorage.setItem('usuarioDados', JSON.stringify(usuario));
-
-  document.getElementById('nomeCompleto').textContent = nome;
-  document.getElementById('nascimento').textContent = nascimento;
-  document.getElementById('modalidade').textContent = modalidade;
-  document.getElementById('tipoConta').textContent = tipoConta;
-  document.getElementById('bio').textContent = bio;
-  document.getElementById('idade').textContent = idade;
-
-  alert('Perfil atualizado com sucesso!');
-  modalEditar.classList.add('d-none');
 });

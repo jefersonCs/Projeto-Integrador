@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perfil - ScouTchê</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./css/header.css" />
-  <link rel="stylesheet" href="./css/btnHamburguer.css"/>
+  <link rel="stylesheet" href="./css/btnHamburguer.css" />
   <link rel="stylesheet" href="./css/headerResponsive.css" />
   <link rel="stylesheet" href="./css/perfil.css" />
 </head>
@@ -22,12 +22,10 @@
     <div>
       <nav id="nav">
         <a href="./home.html">
-          <img class="icon-header" src="https://i.postimg.cc/Hx14CkmB/image.png" alt="icon-home" />Página
-          Principal
+          <img class="icon-header" src="https://i.postimg.cc/Hx14CkmB/image.png" alt="icon-home" />Página Principal
         </a>
         <a href="./criarEvento.html">
-          <img class="icon-header" src="https://i.postimg.cc/8Cnyq6PW/image.png" alt="icon-criar" />Criar
-          Evento
+          <img class="icon-header" src="https://i.postimg.cc/8Cnyq6PW/image.png" alt="icon-criar" />Criar Evento
         </a>
         <a href="./inscricoes.html">
           <img class="icon-header" src="https://i.postimg.cc/C50rh4GB/image.png" alt="icon-insc" />Inscrições
@@ -40,63 +38,49 @@
         <img src="https://i.postimg.cc/gJg6vRMH/image.png" alt="Foto de perfil" />
       </a>
     </div>
-    </div>
 
     <button class="menu-toggle d-md-none btn text-white" data-bs-toggle="modal" data-bs-target="#menuModal">
       &#9776;
     </button>
 
   </header>
+
   <main class="container perfil-container">
-    <section class="perfil-dados">
-      <div class="perfil-foto">
-        <img id="fotoPerfil" src="https://i.postimg.cc/gJg6vRMH/image.png" alt="Foto de perfil" />
-        <button id="btn-editar-foto" class="btn btn-outline-primary btn-sm mt-2">Editar Foto</button>
-        <button id="btn-remover-foto" class="btn btn-outline-danger btn-sm mt-2">Remover Foto</button>
+    <section class="perfil-dados d-flex gap-4">
+      <div class="perfil-foto text-center">
+        <img id="fotoPerfil" src="./img/futsal.png" alt="Foto de perfil"
+          style="width:160px; height:160px; border-radius:50%;" />
+        <button id="btnEscolherAvatar" class="btn btn-primary mt-3">Escolher Avatar</button>
       </div>
 
       <div class="perfil-info">
-        <h2 id="nomeCompleto">Nome do Usuário</h2>
-
-        <p><strong>Data de Nascimento:</strong> <span id="nascimento">--/--/----</span></p>
-        <p><strong>Idade:</strong> <span id="idade">--</span></p>
-        <p><strong>Modalidade:</strong> <span id="modalidade">--</span></p>
-        <p><strong>Bio:</strong> <span id="bio">--</span></p>
-
+        <h2 id="nomePerfil">Nome do Usuário</h2>
+        <p><strong>Tipo de Conta:</strong> <span id="tipoContaPerfil">--</span></p>
+        <p><strong>Idade:</strong> <span id="idadePerfil">--</span></p>
+        <p><strong>Modalidade:</strong> <span id="modalidadePerfil">--</span></p>
+        <p><strong>Bio:</strong> <span id="bioPerfil">--</span></p>
         <button id="btn-editar-perfil" class="btn btn-primary mt-3">Editar Perfil</button>
-        <button id="btn-salvar-perfil" class="btn btn-success mt-3 d-none">Salvar Alterações</button>
-        <button id="btn-cancelar-edicao" class="btn btn-secondary mt-3 d-none">Cancelar</button>
       </div>
     </section>
   </main>
 
-  <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-sm-down">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="menuModalLabel">Menu</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body d-flex flex-column gap-3 px-4">
-                    <a href="./home.html" class="nav-link text-white d-flex align-items-center">
-                        <img class="icon-header me-2" src="https://i.postimg.cc/Hx14CkmB/image.png" alt="icon-home" />
-                        Página Principal
-                    </a>
-                    <a href="./criarEvento.html" class="nav-link text-white d-flex align-items-center">
-                        <img class="icon-header me-2" src="https://i.postimg.cc/8Cnyq6PW/image.png" alt="icon-criar" />
-                        Criar Evento
-                    </a>
-                    <a href="./inscricoes.html" class="nav-link text-white d-flex align-items-center">
-                        <img class="icon-header me-2" src="https://i.postimg.cc/C50rh4GB/image.png" alt="icon-insc" />
-                        Inscrições
-                    </a>
-                </div>
-            </div>
-        </div>
+  <div id="modalAvatar">
+    <div class="modal-content-avatar">
+      <button class="close-avatar">&times;</button>
+      <h2>Escolha seu Avatar</h2>
+      <div class="avatar-grid">
+        <img src="https://i.postimg.cc/gJg6vRMH/image.png" alt="avatar1" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar2" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar3" class="avatar-option" />
+        <img src="./img/basquete.png" alt="avatar4" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar5" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar6" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar7" class="avatar-option" />
+        <img src="./img/futsal.png" alt="avatar8" class="avatar-option" />
+      </div>
     </div>
+  </div>
 
-  <!-- Modal Editar Perfil -->
   <div id="modal-editar-perfil" class="modal-custom d-none">
     <div class="modal-content-custom">
       <h2>Editar Perfil</h2>
@@ -127,6 +111,7 @@
       </div>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./script/perfil.js"></script>
 </body>

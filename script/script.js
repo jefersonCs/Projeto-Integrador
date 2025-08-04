@@ -65,3 +65,46 @@ if (carousel) {
     }
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnEscolherAvatar = document.getElementById('btnEscolherAvatar');
+  const modalAvatar = document.getElementById('modalAvatar');
+  const closeAvatar = document.querySelector('.close-avatar');
+  const avatarOptions = document.querySelectorAll('.avatar-option');
+  const fotoPerfil = document.getElementById('fotoPerfil');
+
+  // Abrir modal avatar
+  btnEscolherAvatar.addEventListener('click', () => {
+    modalAvatar.classList.remove('d-none');
+  });
+
+  // Fechar modal avatar ao clicar no botão X
+  closeAvatar.addEventListener('click', () => {
+    modalAvatar.classList.add('d-none');
+  });
+
+  // Fechar modal avatar ao clicar fora da caixa de conteúdo
+  modalAvatar.addEventListener('click', (e) => {
+    if (e.target === modalAvatar) {
+      modalAvatar.classList.add('d-none');
+    }
+  });
+
+  // Selecionar avatar, salvar no localStorage e atualizar imagem
+  avatarOptions.forEach((img) => {
+    img.addEventListener('click', () => {
+      const usuario = JSON.parse(localStorage.getItem('usuarioDados')) || {};
+      usuario.avatar = img.src;
+      localStorage.setItem('usuarioDados', JSON.stringify(usuario));
+      fotoPerfil.src = img.src;
+      modalAvatar.classList.add('d-none');
+    });
+  });
+
+  // Carregar avatar salvo ao abrir página
+  const usuarioSalvo = JSON.parse(localStorage.getItem('usuarioDados'));
+  if (usuarioSalvo?.avatar) {
+    fotoPerfil.src = usuarioSalvo.avatar;
+  }
+});
